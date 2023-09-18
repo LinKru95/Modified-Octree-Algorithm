@@ -15,25 +15,23 @@ bounding_box = calculate_bounding_box(points)
 root_octree_node = create_initial_octree_root(bounding_box)
 add_child_nodes_to_depth(root_octree_node, max_depth, 0, split_cube)
 
-# print("Bounding Box:")
-# print("Min Corner:", bounding_box[0])
-# print("Max Corner:", bounding_box[1])
-# print("Root Node Position:", root_octree_node.min_corner)
-# print("Root Node Size:", root_octree_node.size)
+print("Bounding Box:")
+print("Min Corner:", bounding_box[0])
+print("Max Corner:", bounding_box[1])
+print("Root Node Position:", root_octree_node.min_corner)
+print("Root Node Size:", root_octree_node.size)
 
-# def print_octree(node, depth=0):
-#     # Print information about the current node
-#     print("Node Depth:", depth)
-#     print("Node Min Corner:", node.min_corner)
-#     print("Node Size:", node.size)
-#     print("Node Children Count:", len(node.children))
+def print_octree(node, depth=0):
+    print("Node Depth:", depth)
+    print("Node Min Corner:", node.min_corner)
+    print("Node Size:", node.size)
+    print("Node Center:", node.center)
+    print("Node Children Count:", len(node.children))
     
-#     # Recursively print information for child nodes
-#     for child in node.children:
-#         print_octree(child, depth + 1)
+    for child in node.children:
+        print_octree(child, depth + 1)
 
-# # Call the print_octree function with the root node
-# print_octree(root_octree_node)
+print_octree(root_octree_node)
 
 
 

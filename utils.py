@@ -15,9 +15,15 @@ def calculate_bounding_box(points):
         max_y = max(max_y, y)
         max_z = max(max_z, z)
 
-    # Return the bounding box as a tuple of two points: (min_corner, max_corner)
-    bounding_box = ((min_x, min_y, min_z), (max_x, max_y, max_z))
-    return bounding_box
+    edge_length = max(max_x - min_x, max_y - min_y, max_z - min_z)
+    center_x = (max_x + min_x) / 2
+    center_y = (max_y + min_y) / 2
+    center_z = (max_z + min_z) / 2
+    min_corner_x = center_x - edge_length / 2
+    min_corner_y = center_y - edge_length / 2
+    min_corner_z = center_z - edge_length / 2
+    bounding_cube = ((min_corner_x, min_corner_y, min_corner_z), (min_corner_x + edge_length, min_corner_y + edge_length, min_corner_z + edge_length))
+    return bounding_cube
 
 def add_child_nodes_to_depth(node, max_depth, current_depth, split_cube):
     if current_depth >= max_depth:

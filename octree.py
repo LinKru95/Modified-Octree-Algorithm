@@ -3,7 +3,7 @@ class OctreeNode:
         self.min_corner = min_corner
         self.size = size
         self.children = []
-        self.center = self.calculate_center()
+        self.center = self.calculate_center_coordinates()
 
     def calculate_center_coordinates(self):
         center_x = self.min_corner[0] + self.size[0] / 2
