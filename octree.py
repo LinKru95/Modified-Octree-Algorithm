@@ -9,6 +9,7 @@ class OctreeNode:
         center_x = self.min_corner[0] + self.size[0] / 2
         center_y = self.min_corner[1] + self.size[1] / 2
         center_z = self.min_corner[2] + self.size[2] / 2
+        
         return (center_x, center_y, center_z)
 
 def create_initial_octree_root(bounding_box):
